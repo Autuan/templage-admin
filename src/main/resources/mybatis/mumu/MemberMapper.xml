@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.autuan.project.mumu.member.mapper.MemberMapper">
+    
+    <resultMap type="Member" id="MemberResult">
+        <result property="id"    column="id"    />
+        <result property="no"    column="no"    />
+        <result property="mobile"    column="mobile"    />
+        <result property="email"    column="email"    />
+        <result property="password"    column="password"    />
+        <result property="safeQuestion"    column="safe_question"    />
+        <result property="safeAnswere"    column="safe_answere"    />
+        <result property="level"    column="level"    />
+        <result property="vip"    column="vip"    />
+        <result property="vipExpireTime"    column="vip_expire_time"    />
+        <result property="startTime"    column="start_time"    />
+        <result property="endTime"    column="end_time"    />
+        <result property="machineCode"    column="machine_code"    />
+        <result property="whiteIp"    column="white_ip"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
+    </resultMap>
+
+    <sql id="selectMemberVo">
+        select id, no, mobile, email, password, safe_question, safe_answere, level, vip, vip_expire_time, start_time, end_time, machine_code, white_ip, create_time, create_by, update_time, update_by from tab_member
+    </sql>
+
+    <select id="selectMemberList" parameterType="Member" resultMap="MemberResult">
+        <include refid="selectMemberVo"/>
+        <where>  
+            <if test="no != null  and no != ''"> and no = #{no}</if>
+            <if test="mobile != null  and mobile != ''"> and mobile = #{mobile}</if>
+            <if test="email != null  and email != ''"> and email = #{email}</if>
+        </where>
+    </select>
+    
+    <select id="selectMemberById" parameterType="String" resultMap="MemberResult">
+        <include refid="selectMemberVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMember" parameterType="Member">
+        insert into tab_member
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null  and id != ''">id,</if>
+            <if test="no != null  and no != ''">no,</if>
+            <if test="mobile != null  and mobile != ''">mobile,</if>
+            <if test="email != null  and email != ''">email,</if>
+            <if test="password != null  and password != ''">password,</if>
+            <if test="safeQuestion != null  and safeQuestion != ''">safe_question,</if>
+            <if test="safeAnswere != null  and safeAnswere != ''">safe_answere,</if>
+            <if test="level != null ">level,</if>
+            <if test="vip != null ">vip,</if>
+            <if test="vipExpireTime != null ">vip_expire_time,</if>
+            <if test="startTime != null ">start_time,</if>
+            <if test="endTime != null ">end_time,</if>
+            <if test="machineCode != null  and machineCode != ''">machine_code,</if>
+            <if test="whiteIp != null  and whiteIp != ''">white_ip,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null  and id != ''">#{id},</if>
+            <if test="no != null  and no != ''">#{no},</if>
+            <if test="mobile != null  and mobile != ''">#{mobile},</if>
+            <if test="email != null  and email != ''">#{email},</if>
+            <if test="password != null  and password != ''">#{password},</if>
+            <if test="safeQuestion != null  and safeQuestion != ''">#{safeQuestion},</if>
+            <if test="safeAnswere != null  and safeAnswere != ''">#{safeAnswere},</if>
+            <if test="level != null ">#{level},</if>
+            <if test="vip != null ">#{vip},</if>
+            <if test="vipExpireTime != null ">#{vipExpireTime},</if>
+            <if test="startTime != null ">#{startTime},</if>
+            <if test="endTime != null ">#{endTime},</if>
+            <if test="machineCode != null  and machineCode != ''">#{machineCode},</if>
+            <if test="whiteIp != null  and whiteIp != ''">#{whiteIp},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMember" parameterType="Member">
+        update tab_member
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="no != null  and no != ''">no = #{no},</if>
+            <if test="mobile != null  and mobile != ''">mobile = #{mobile},</if>
+            <if test="email != null  and email != ''">email = #{email},</if>
+            <if test="password != null  and password != ''">password = #{password},</if>
+            <if test="safeQuestion != null  and safeQuestion != ''">safe_question = #{safeQuestion},</if>
+            <if test="safeAnswere != null  and safeAnswere != ''">safe_answere = #{safeAnswere},</if>
+            <if test="level != null ">level = #{level},</if>
+            <if test="vip != null ">vip = #{vip},</if>
+            <if test="vipExpireTime != null ">vip_expire_time = #{vipExpireTime},</if>
+            <if test="startTime != null ">start_time = #{startTime},</if>
+            <if test="endTime != null ">end_time = #{endTime},</if>
+            <if test="machineCode != null  and machineCode != ''">machine_code = #{machineCode},</if>
+            <if test="whiteIp != null  and whiteIp != ''">white_ip = #{whiteIp},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMemberById" parameterType="String">
+        delete from tab_member where id = #{id}
+    </delete>
+
+    <delete id="deleteMemberByIds" parameterType="String">
+        delete from tab_member where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
