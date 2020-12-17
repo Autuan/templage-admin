@@ -311,15 +311,21 @@
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
-<!--        redis -->
+        <!--        redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-<!--        websocket-->
+        <!--        websocket-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+        <!--        fastdfs-->
+        <dependency>
+            <groupId>com.github.tobato</groupId>
+            <artifactId>fastdfs-client</artifactId>
+            <version>1.27.2</version>
         </dependency>
     </dependencies>
 
