@@ -1,0 +1,28 @@
+
+<div th:fragment="upload_html">
+    <input th:name="${imgId}" th:id="${imgId}" th:value="${showVal}" class="form-control" type="hidden">
+    <div class="form-group">
+        <label class="font-noraml" th:text="${showStr}"></label>
+        <div class="file-loading">
+            <input th:id="'localupload_'+${imgId}" type="file" name="file" multiple data-min-file-count="1">
+        </div>
+    </div>
+</div>
+<div th:fragment="upload_js(imgId)">
+    <script th:inline="javascript">
+        $(function () {
+            console.info("#localupload_"+[[${imgId}]])
+            $("#localupload_"+[[${imgId}]]).fileinput({
+                'theme': 'explorer-fas',
+                'uploadUrl': ctx + 'common/upload',
+                overwriteInitial: false,
+                maxFileCount:1,
+                dropZoneTitle:'拖拽文件到这里',
+                initialPreviewAsData: true,
+                initialPreview: [$('#'+[[${imgId}]]).val()],
+            }).on("fileuploaded", function(event, data, previewId, index) {
+                $('#'+[[${imgId}]]).val(data.response.url);
+            });
+        })
+    </script>
+</div>

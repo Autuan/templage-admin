@@ -4569,6 +4569,7 @@
             self.$captionContainer.focus();
         },
         _change: function (e) {
+            console.info('-change')
             var self = this;
             if (self.changeTriggered) {
                 return;
@@ -4584,6 +4585,8 @@
                     return isAjaxUpload ? self._showFileError(mesg, p1) : self._showError(mesg, p2);
                 },
                 maxCountCheck = function (n, m) {
+                console.info(' run here -n ',n)
+                console.info(' run here -m ',m)
                     var msg = self.msgFilesTooMany.replace('{m}', m).replace('{n}', n);
                     self.isError = throwError(msg, null, null, null);
                     self.$captionContainer.removeClass('icon-visible');
@@ -4614,6 +4617,7 @@
             self._resetErrors();
             len = tfiles.length;
             total = self._getFileCount(isAjaxUpload ? (self.fileManager.count() + len) : len);
+            console.info('total : ' +total)
             if (maxCount > 0 && total > maxCount) {
                 if (!self.autoReplace || len > maxCount) {
                     maxCountCheck((self.autoReplace && len > maxCount ? len : total), maxCount);

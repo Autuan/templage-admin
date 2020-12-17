@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectMemberVo">
-        select id, no, mobile, email, password, safe_question, safe_answere, level, vip, vip_expire_time, start_time, end_time, machine_code, white_ip, create_time, create_by, update_time, update_by from tab_member
+        select id, no, mobile, email, password, safe_question, safe_answere, level, vip,  machine_code, white_ip from tab_member
     </sql>
 
     <select id="selectMemberList" parameterType="Member" resultMap="MemberResult">
