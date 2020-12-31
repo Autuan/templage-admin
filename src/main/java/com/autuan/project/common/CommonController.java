@@ -116,7 +116,9 @@ public class CommonController {
                     WebUtils.getNativeRequest(request, MultipartHttpServletRequest.class);
             uploadFile= multipartRequest.getFile("file");
         }
-//        log.info("新增app版本=====》请求报文={}", JSON.toJSONString(model));
+        if(null == uploadFile) {
+            return "error";
+        }
         //返回的文件Path
         String pictureName="";
         String Id ="";
