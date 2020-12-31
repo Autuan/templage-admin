@@ -35,8 +35,10 @@ public class ExcelRead {
             System.out.println("XLSX格式");
             workbook = new XSSFWorkbook(is);
         }
-
-        return exportListFromExcel((Workbook)workbook, sheetNum);
+        if (null == workbook) {
+            return null;
+        }
+        return exportListFromExcel((Workbook) workbook, sheetNum);
     }
 
     public static List<List<Object>> exportListFromExcel(File file, int sheetNum) throws IOException {
@@ -50,31 +52,32 @@ public class ExcelRead {
         int minRowIx = sheet.getFirstRowNum();
         int maxRowIx = sheet.getLastRowNum();
 
-        for(int rowIx = minRowIx; rowIx <= maxRowIx; ++rowIx) {
+        for (int rowIx = minRowIx; rowIx <= maxRowIx; ++rowIx) {
             List<Object> rowList = new ArrayList<>();
             Row row = sheet.getRow(rowIx);
             StringBuilder sb = new StringBuilder();
             short minColIx = row.getFirstCellNum();
             short maxColIx = row.getLastCellNum();
 
-            for(short colIx = minColIx; colIx <= maxColIx; ++colIx) {
+            for (short colIx = minColIx; colIx <= maxColIx; ++colIx) {
                 Cell cell = row.getCell(new Integer(colIx));
                 CellValue cellValue = evaluator.evaluate(cell);
                 if (cellValue != null) {
-                    switch(cellValue.getCellType()) {
+                    switch (cellValue.getCellType()) {
                         case NUMERIC: {
                             if (DateUtil.isCellDateFormatted(cell)) {
                                 rowList.add(cell.getLocalDateTimeCellValue());
                                 sb.append("|" + cell.getDateCellValue());
                             } else {
                                 rowList.add(cellValue.getNumberValue());
-                                sb.append("|" + (long)cellValue.getNumberValue());
+                                sb.append("|" + (long) cellValue.getNumberValue());
                             }
                             break;
                         }
                         case STRING: {
                             rowList.add(cellValue.getStringValue());
-                            sb.append("|" + cellValue.getStringValue());break;
+                            sb.append("|" + cellValue.getStringValue());
+                            break;
                         }
                         case BOOLEAN: {
                             rowList.add(cellValue.getBooleanValue());
@@ -86,7 +89,7 @@ public class ExcelRead {
                             break;
                         }
                     }
-                }else{
+                } else {
                     rowList.add(null);
                     sb.append("|");
                 }
@@ -99,39 +102,44 @@ public class ExcelRead {
         return list;
     }
 
-    private static  List<Object> objList = null;
-    private static  int objListSize = 0;
-    public static void setObjList(List<Object> list){
+    private static List<Object> objList = null;
+    private static int objListSize = 0;
+
+    public static void setObjList(List<Object> list) {
         objList = list;
         objListSize = list.size();
     }
-    public static String getStr(int i){
-        if(objListSize <= i){
+
+    public static String getStr(int i) {
+        if (objListSize <= i) {
             return null;
         }
         return String.valueOf(objList.get(i));
     }
-    public static String getStrDef(int i,String def){
-        if(objListSize <= i){
+
+    public static String getStrDef(int i, String def) {
+        if (objListSize <= i) {
             return def;
         }
         return String.valueOf(objList.get(i));
     }
-    public static BigDecimal getBigDecimalDef(int i, BigDecimal def){
-        if(objListSize <= i){
+
+    public static BigDecimal getBigDecimalDef(int i, BigDecimal def) {
+        if (objListSize <= i) {
             return def;
         }
         return new BigDecimal(String.valueOf(objList.get(i)));
     }
-    public static LocalDateTime getLocalDateTime(int i){
-        if(objListSize <= i){
+
+    public static LocalDateTime getLocalDateTime(int i) {
+        if (objListSize <= i) {
             return null;
         }
         Object obj = objList.get(i);
-        if(obj instanceof LocalDateTime) {
+        if (obj instanceof LocalDateTime) {
             return (LocalDateTime) obj;
         }
-        if(obj instanceof String) {
+        if (obj instanceof String) {
             String dateStr = (String) obj;
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             return LocalDateTime.parse(dateStr, formatter);
