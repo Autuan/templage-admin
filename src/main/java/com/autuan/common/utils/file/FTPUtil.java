@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
+import org.springframework.beans.factory.annotation.Value;
 
 /**
  * @className: FTPUtil
@@ -20,10 +21,14 @@ import org.apache.commons.net.ftp.FTPClient;
  **/
 public class FTPUtil {
     private static Map<String, String> apkDirectory = null;
-    private static String FTP_IP = "promote.yupai.net";
-    private static String FTP_PORT = "22";
-    private static String FTP_USER = "promote_yupai_net";
-    private static String FTP_PASSWORD = "4HeEkE4zHcy4k2Sd";
+    @Value("${ftp.ip}")
+    private static String FTP_IP;
+    @Value("ftp.port")
+    private static String FTP_PORT;
+    @Value("ftp.user")
+    private static String FTP_USER;
+    @Value("ftp.password")
+    private static String FTP_PASSWORD;
 
     public FTPUtil() {
     }
