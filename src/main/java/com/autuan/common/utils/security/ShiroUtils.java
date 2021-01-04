@@ -60,7 +60,7 @@ public class ShiroUtils {
     }
 
     public static String getLoginName() {
-        return getSysUser().getLoginName();
+        return getSysUser().getLoginName(); // NOSONAR
     }
 
     public static String getIp() {
