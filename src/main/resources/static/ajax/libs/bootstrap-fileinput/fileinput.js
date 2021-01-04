@@ -162,7 +162,7 @@
                 return new RegExp('msie\\s' + ver, 'i').test(navigator.userAgent);
             }
             div = document.createElement('div');
-            div.innerHTML = '<!--[if IE ' + ver + ']> <i></i> <![endif]-->';
+            div.innerHTML = '<!--[if IE ' + ver + ']> <em></em> <![endif]-->';
             status = div.getElementsByTagName('i').length;
             document.body.appendChild(div);
             div.parentNode.removeChild(div);
@@ -1379,7 +1379,7 @@
                 '    </div>\n' +
                 '</div>';
             tClose = $h.closeButton('fileinput-remove');
-            tFileIcon = '<i class="glyphicon glyphicon-file"></i>';
+            tFileIcon = '<em class="glyphicon glyphicon-file"></em>';
             // noinspection HtmlUnknownAttribute
             tCaption = '<div class="file-caption form-control {class}" tabindex="500">\n' +
                 '  <span class="file-caption-icon"></span>\n' +
@@ -1612,30 +1612,30 @@
                     showDownload: true,
                     showZoom: true,
                     showDrag: true,
-                    removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+                    removeIcon: '<em class="glyphicon glyphicon-trash"></em>',
                     removeClass: 'btn btn-sm btn-kv btn-default btn-outline-secondary',
                     removeErrorClass: 'btn btn-sm btn-kv btn-danger',
                     removeTitle: 'Remove file',
-                    uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
+                    uploadIcon: '<em class="glyphicon glyphicon-upload"></em>',
                     uploadClass: 'btn btn-sm btn-kv btn-default btn-outline-secondary',
                     uploadTitle: 'Upload file',
-                    uploadRetryIcon: '<i class="glyphicon glyphicon-repeat"></i>',
+                    uploadRetryIcon: '<em class="glyphicon glyphicon-repeat"></em>',
                     uploadRetryTitle: 'Retry upload',
-                    downloadIcon: '<i class="glyphicon glyphicon-download"></i>',
+                    downloadIcon: '<em class="glyphicon glyphicon-download"></em>',
                     downloadClass: 'btn btn-sm btn-kv btn-default btn-outline-secondary',
                     downloadTitle: 'Download file',
-                    zoomIcon: '<i class="glyphicon glyphicon-zoom-in"></i>',
+                    zoomIcon: '<em class="glyphicon glyphicon-zoom-in"></em>',
                     zoomClass: 'btn btn-sm btn-kv btn-default btn-outline-secondary',
                     zoomTitle: 'View Details',
-                    dragIcon: '<i class="glyphicon glyphicon-move"></i>',
+                    dragIcon: '<em class="glyphicon glyphicon-move"></em>',
                     dragClass: 'text-info',
                     dragTitle: 'Move / Rearrange',
                     dragSettings: {},
-                    indicatorNew: '<i class="glyphicon glyphicon-plus-sign text-warning"></i>',
-                    indicatorSuccess: '<i class="glyphicon glyphicon-ok-sign text-success"></i>',
-                    indicatorError: '<i class="glyphicon glyphicon-exclamation-sign text-danger"></i>',
-                    indicatorLoading: '<i class="glyphicon glyphicon-hourglass text-muted"></i>',
-                    indicatorPaused: '<i class="glyphicon glyphicon-pause text-primary"></i>',
+                    indicatorNew: '<em class="glyphicon glyphicon-plus-sign text-warning"></em>',
+                    indicatorSuccess: '<em class="glyphicon glyphicon-ok-sign text-success"></em>',
+                    indicatorError: '<em class="glyphicon glyphicon-exclamation-sign text-danger"></em>',
+                    indicatorLoading: '<em class="glyphicon glyphicon-hourglass text-muted"></em>',
+                    indicatorPaused: '<em class="glyphicon glyphicon-pause text-primary"></em>',
                     indicatorNewTitle: 'Not uploaded yet',
                     indicatorSuccessTitle: 'Uploaded',
                     indicatorErrorTitle: 'Upload Error',
@@ -2052,7 +2052,7 @@
                 errMsg = self.msgAjaxError.replace('{operation}', operation);
             }
             self.cancelling = false;
-            return fileName ? '<b>' + fileName + ': </b>' + errMsg : errMsg;
+            return fileName ? '<strong> ' + fileName + ': </strong> ' + errMsg : errMsg;
         },
         _parseFileType: function (type, name) {
             var self = this, isValid, vType, cat, i, types = self.allowedPreviewTypes || [];
@@ -5372,12 +5372,12 @@
             return $container.html();
         },
         previewZoomButtonIcons: {
-            prev: '<i class="glyphicon glyphicon-triangle-left"></i>',
-            next: '<i class="glyphicon glyphicon-triangle-right"></i>',
-            toggleheader: '<i class="glyphicon glyphicon-resize-vertical"></i>',
-            fullscreen: '<i class="glyphicon glyphicon-fullscreen"></i>',
-            borderless: '<i class="glyphicon glyphicon-resize-full"></i>',
-            close: '<i class="glyphicon glyphicon-remove"></i>'
+            prev: '<em class="glyphicon glyphicon-triangle-left"></em>',
+            next: '<em class="glyphicon glyphicon-triangle-right"></em>',
+            toggleheader: '<em class="glyphicon glyphicon-resize-vertical"></em>',
+            fullscreen: '<em class="glyphicon glyphicon-fullscreen"></em>',
+            borderless: '<em class="glyphicon glyphicon-resize-full"></em>',
+            close: '<em class="glyphicon glyphicon-remove"></em>'
         },
         previewZoomButtonClasses: {
             prev: 'btn btn-navigate',
@@ -5402,20 +5402,20 @@
         defaultPreviewContent: null,
         customLayoutTags: {},
         customPreviewTags: {},
-        previewFileIcon: '<i class="glyphicon glyphicon-file"></i>',
+        previewFileIcon: '<em class="glyphicon glyphicon-file"></em>',
         previewFileIconClass: 'file-other-icon',
         previewFileIconSettings: {},
         previewFileExtSettings: {},
         buttonLabelClass: 'hidden-xs',
-        browseIcon: '<i class="glyphicon glyphicon-folder-open"></i>&nbsp;',
+        browseIcon: '<em class="glyphicon glyphicon-folder-open"></em>&nbsp;',
         browseClass: 'btn btn-primary',
-        removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+        removeIcon: '<em class="glyphicon glyphicon-trash"></em>',
         removeClass: 'btn btn-default btn-secondary',
-        cancelIcon: '<i class="glyphicon glyphicon-ban-circle"></i>',
+        cancelIcon: '<em class="glyphicon glyphicon-ban-circle"></em>',
         cancelClass: 'btn btn-default btn-secondary',
-        pauseIcon: '<i class="glyphicon glyphicon-pause"></i>',
+        pauseIcon: '<em class="glyphicon glyphicon-pause"></em>',
         pauseClass: 'btn btn-default btn-secondary',
-        uploadIcon: '<i class="glyphicon glyphicon-upload"></i>',
+        uploadIcon: '<em class="glyphicon glyphicon-upload"></em>',
         uploadClass: 'btn btn-default btn-secondary',
         uploadUrl: null,
         uploadUrlThumb: null,
@@ -5464,7 +5464,7 @@
         maxFileCount: 0,
         validateInitialCount: false,
         msgValidationErrorClass: 'text-danger',
-        msgValidationErrorIcon: '<i class="glyphicon glyphicon-exclamation-sign"></i> ',
+        msgValidationErrorIcon: '<em class="glyphicon glyphicon-exclamation-sign"></em> ',
         msgErrorClass: 'file-error-message',
         progressThumbClass: 'progress-bar progress-bar-striped active',
         progressClass: 'progress-bar bg-success progress-bar-success progress-bar-striped active',
@@ -5523,10 +5523,10 @@
         msgPlaceholder: 'Select {files}...',
         msgZoomModalHeading: 'Detailed Preview',
         msgFileRequired: 'You must select a file to upload.',
-        msgSizeTooSmall: 'File "{name}" (<b>{size} KB</b>) is too small and must be larger than <b>{minSize} KB</b>.',
-        msgSizeTooLarge: 'File "{name}" (<b>{size} KB</b>) exceeds maximum allowed upload size of <b>{maxSize} KB</b>.',
-        msgFilesTooLess: 'You must select at least <b>{n}</b> {files} to upload.',
-        msgFilesTooMany: 'Number of files selected for upload <b>({n})</b> exceeds maximum allowed limit of <b>{m}</b>.',
+        msgSizeTooSmall: 'File "{name}" (<strong> {size} KB</strong> ) is too small and must be larger than <strong> {minSize} KB</strong> .',
+        msgSizeTooLarge: 'File "{name}" (<strong> {size} KB</strong> ) exceeds maximum allowed upload size of <strong> {maxSize} KB</strong> .',
+        msgFilesTooLess: 'You must select at least <strong> {n}</strong>  {files} to upload.',
+        msgFilesTooMany: 'Number of files selected for upload <strong> ({n})</strong>  exceeds maximum allowed limit of <strong> {m}</strong> .',
         msgFileNotFound: 'File "{name}" not found!',
         msgFileSecured: 'Security restrictions prevent reading the file "{name}".',
         msgFileNotReadable: 'File "{name}" is not readable.',
@@ -5568,7 +5568,7 @@
         msgAjaxError: 'Something went wrong with the {operation} operation. Please try again later!',
         msgAjaxProgressError: '{operation} failed',
         msgDuplicateFile: 'File "{name}" of same size "{size} KB" has already been selected earlier. Skipping duplicate selection.',
-        msgResumableUploadRetriesExceeded: 'Upload aborted beyond <b>{max}</b> retries for file <b>{file}</b>! Error Details: <pre>{error}</pre>',
+        msgResumableUploadRetriesExceeded: 'Upload aborted beyond <strong> {max}</strong>  retries for file <strong> {file}</strong> ! Error Details: <pre>{error}</pre>',
         msgPendingTime: '{time} remaining',
         msgCalculatingTime: 'calculating time remaining',
         ajaxOperations: {
@@ -5608,10 +5608,10 @@
         msgPlaceholder: '选择 {files}...',
         msgZoomModalHeading: '详细预览',
         msgFileRequired: '必须选择一个文件上传.',
-        msgSizeTooSmall: '文件 "{name}" (<b>{size} KB</b>) 必须大于限定大小 <b>{minSize} KB</b>.',
-        msgSizeTooLarge: '文件 "{name}" (<b>{size} KB</b>) 超过了允许大小 <b>{maxSize} KB</b>.',
-        msgFilesTooLess: '你必须选择最少 <b>{n}</b> {files} 来上传. ',
-        msgFilesTooMany: '选择的上传文件个数 <b>({n})</b> 超出最大文件的限制个数 <b>{m}</b>.',
+        msgSizeTooSmall: '文件 "{name}" (<strong> {size} KB</strong> ) 必须大于限定大小 <strong> {minSize} KB</strong> .',
+        msgSizeTooLarge: '文件 "{name}" (<strong> {size} KB</strong> ) 超过了允许大小 <strong> {maxSize} KB</strong> .',
+        msgFilesTooLess: '你必须选择最少 <strong> {n}</strong>  {files} 来上传. ',
+        msgFilesTooMany: '选择的上传文件个数 <strong> ({n})</strong>  超出最大文件的限制个数 <strong> {m}</strong> .',
         msgFileNotFound: '文件 "{name}" 未找到!',
         msgFileSecured: '安全限制，为了防止读取文件 "{name}".',
         msgFileNotReadable: '文件 "{name}" 不可读.',
@@ -5653,7 +5653,7 @@
         msgAjaxError: '{operation} 发生错误. 请重试!',
         msgAjaxProgressError: '{operation} 失败',
         msgDuplicateFile: 'File "{name}" of same size "{size} KB" has already been selected earlier. Skipping duplicate selection.',
-        msgResumableUploadRetriesExceeded:  'Upload aborted beyond <b>{max}</b> retries for file <b>{file}</b>! Error Details: <pre>{error}</pre>',
+        msgResumableUploadRetriesExceeded:  'Upload aborted beyond <strong> {max}</strong>  retries for file <strong> {file}</strong> ! Error Details: <pre>{error}</pre>',
         msgPendingTime: '{time} remaining',
         msgCalculatingTime: 'calculating time remaining',
         ajaxOperations: {

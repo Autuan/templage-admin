@@ -1855,9 +1855,9 @@
     },
     headTemplate: '<thead>' +
                 '<tr>' +
-                '<th class="prev"><i class="{iconType} {leftArrow}"/></th>' +
+                '<th class="prev"><em class="{iconType} {leftArrow}"/></th>' +
                 '<th colspan="5" class="switch"></th>' +
-                '<th class="next"><i class="{iconType} {rightArrow}"/></th>' +
+                '<th class="next"><em class="{iconType} {rightArrow}"/></th>' +
                 '</tr>' +
       '</thead>',
     headTemplateV3: '<thead>' +

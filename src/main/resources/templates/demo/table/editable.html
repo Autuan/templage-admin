@@ -8,10 +8,10 @@
      <div class="container-div">
         <div class="btn-group-sm" id="toolbar" role="group">
              <a class="btn btn-info" onclick="getSelections()">
-	            <i class="fa fa-search"></i> 查询选择数据
+	            <em class="fa fa-search"></em> 查询选择数据
 	        </a>
 	        <a class="btn btn-primary" onclick="getData()">
-	            <i class="fa fa-search"></i> 获取所有数据
+	            <em class="fa fa-search"></em> 获取所有数据
 	        </a>
         </div>
 		<div class="row">
@@ -99,8 +99,8 @@
 		            align: 'center',
 		            formatter: function(value, row, index) {
 		            	var actions = [];
-		            	actions.push('<a class="btn btn-success btn-xs" href="#"><i class="fa fa-edit"></i>编辑</a> ');
-                        actions.push('<a class="btn btn-danger btn-xs" href="#"><i class="fa fa-remove"></i>删除</a>');
+		            	actions.push('<a class="btn btn-success btn-xs" href="#"><em class="fa fa-edit"></em>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs" href="#"><em class="fa fa-remove"></em>删除</a>');
 						return actions.join('');
 		            }
 		        }]

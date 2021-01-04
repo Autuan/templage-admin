@@ -612,7 +612,7 @@
 
         // 是否可清除已输入的内容(添加清除按钮)
         if (options.clearable && !$iClear.length) {
-                $iClear = $('<i class="clearable glyphicon glyphicon-remove fa fa-plus"></i>')
+                $iClear = $('<em class="clearable glyphicon glyphicon-remove fa fa-plus"></em>')
                     .prependTo($input.parent());
         }
 

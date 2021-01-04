@@ -376,11 +376,11 @@
         '   <input class="filter" type="text">' +
         '   <div class="btn-group buttons">' +
         '     <button type="button" class="btn moveall">' +
-        '       <i></i>' +
-        '       <i></i>' +
+        '       <em></em>' +
+        '       <em></em>' +
         '     </button>' +
         '     <button type="button" class="btn move">' +
-        '       <i></i>' +
+        '       <em></em>' +
         '     </button>' +
         '   </div>' +
         '   <select multiple="multiple"></select>' +
@@ -394,11 +394,11 @@
         '   <input class="filter" type="text">' +
         '   <div class="btn-group buttons">' +
         '     <button type="button" class="btn remove">' +
-        '       <i></i>' +
+        '       <em></em>' +
         '     </button>' +
         '     <button type="button" class="btn removeall">' +
-        '       <i></i>' +
-        '       <i></i>' +
+        '       <em></em>' +
+        '       <em></em>' +
         '     </button>' +
         '   </div>' +
         '   <select multiple="multiple"></select>' +

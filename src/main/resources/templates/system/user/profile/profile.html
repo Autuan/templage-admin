@@ -19,24 +19,24 @@
                         <p><a href="javascript:avatar()">修改头像</a></p>
                     </div>
                     <ul class="list-group list-group-striped">
-                        <li class="list-group-item"><i class="fa fa-user"></i>
-                            <b class="font-noraml">登录名称：</b>
+                        <li class="list-group-item"><em class="fa fa-user"></em>
+                            <strong  class="font-noraml">登录名称：</strong>
                             <p class="pull-right">[[${user.loginName}]]</p>
                         </li>
-                        <li class="list-group-item"><i class="fa fa-phone"></i>
-                            <b  class="font-noraml">手机号码：</b>
+                        <li class="list-group-item"><em class="fa fa-phone"></em>
+                            <strong   class="font-noraml">手机号码：</strong>
                             <p class="pull-right">[[${user.phonenumber}]]</p>
                         </li>
-                        <li class="list-group-item"><i class="fa fa-group"></i>
-                            <b  class="font-noraml">所属部门：</b>
+                        <li class="list-group-item"><em class="fa fa-group"></em>
+                            <strong   class="font-noraml">所属部门：</strong>
                             <p class="pull-right" >[[${user.dept?.deptName}]] / [[${#strings.defaultString(postGroup,'无岗位')}]]</p>
                         </li>
-                        <li class="list-group-item"><i class="fa fa-envelope-o"></i>
-                            <b  class="font-noraml">邮箱地址：</b>
+                        <li class="list-group-item"><em class="fa fa-envelope-o"></em>
+                            <strong   class="font-noraml">邮箱地址：</strong>
                             <p class="pull-right" >[[${user.email}]]</p>
                         </li>
-<!--                        <li class="list-group-item"><i class="fa fa-calendar"></i>-->
-<!--                            <b  class="font-noraml">创建时间：</b>-->
+<!--                        <li class="list-group-item"><em class="fa fa-calendar"></em>-->
+<!--                            <strong   class="font-noraml">创建时间：</strong> -->
 <!--                            <p class="pull-right" ></p>-->
 <!--                        </li>-->
                     </ul>
@@ -94,8 +94,8 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="button" class="btn btn-sm btn-primary" onclick="submitUserInfo()"><i class="fa fa-check"></i>保 存</button>&nbsp;
-                                            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>
+                                            <button type="button" class="btn btn-sm btn-primary" onclick="submitUserInfo()"><em class="fa fa-check"></em>保 存</button>&nbsp;
+                                            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><em class="fa fa-reply-all"></em>关 闭 </button>
                                         </div>
                                     </div>
                                 </form>
@@ -124,8 +124,8 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="button" class="btn btn-sm btn-primary" onclick="submitChangPassword()"><i class="fa fa-check"></i>保 存</button>&nbsp;
-                                            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>
+                                            <button type="button" class="btn btn-sm btn-primary" onclick="submitChangPassword()"><em class="fa fa-check"></em>保 存</button>&nbsp;
+                                            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><em class="fa fa-reply-all"></em>关 闭 </button>
                                         </div>
                                     </div>
                                 </form>

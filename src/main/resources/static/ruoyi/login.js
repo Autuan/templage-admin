@@ -43,7 +43,7 @@ function login() {
 }
 
 function validateRule() {
-    var icon = "<i class='fa fa-times-circle'></i> ";
+    var icon = "<em class='fa fa-times-circle'></em> ";
     $("#signupForm").validate({
         rules: {
             username: {

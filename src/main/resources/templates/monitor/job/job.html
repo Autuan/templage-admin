@@ -26,8 +26,8 @@
 								</select>
 							</li>
 							<li>
-								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
-								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><em class="fa fa-search"></em>&nbsp;搜索</a>
+								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><em class="fa fa-refresh"></em>&nbsp;重置</a>
 							</li>
 						</ul>
 					</div>
@@ -36,19 +36,19 @@
 			
 			<div class="btn-group-sm" id="toolbar" role="group">
 				<a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="monitor:job:add">
-	                <i class="fa fa-plus"></i> 新增
+	                <em class="fa fa-plus"></em> 新增
 	            </a>
 	            <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="monitor:job:edit">
-		            <i class="fa fa-edit"></i> 修改
+		            <em class="fa fa-edit"></em> 修改
 		        </a>
 				<a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="monitor:job:remove">
-		            <i class="fa fa-remove"></i> 删除
+		            <em class="fa fa-remove"></em> 删除
 		        </a>
 		         <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="monitor:job:export">
-		            <i class="fa fa-download"></i> 导出
+		            <em class="fa fa-download"></em> 导出
 		        </a>
 		        <a class="btn btn-info" onclick="javascript:jobLog()" shiro:hasPermission="monitor:job:list">
-		            <i class="fa fa-list"></i> 日志
+		            <em class="fa fa-list"></em> 日志
 		        </a>
 	        </div>
         
@@ -124,8 +124,8 @@
 		            align: 'center',
 		            formatter: function(value, row, index) {
 		                var actions = [];
-		                actions.push('<a class="btn btn-primary btn-xs ' + statusFlag + '" href="javascript:void(0)" onclick="run(\'' + row.jobId + '\', \'' + row.jobGroup + '\')"><i class="fa fa-play-circle-o"></i> 执行一次</a> ');
-		                actions.push('<a class="btn btn-warning btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="$.operate.detail(\'' + row.jobId + '\')"><i class="fa fa-search"></i>详细</a> ');
+		                actions.push('<a class="btn btn-primary btn-xs ' + statusFlag + '" href="javascript:void(0)" onclick="run(\'' + row.jobId + '\', \'' + row.jobGroup + '\')"><em class="fa fa-play-circle-o"></em> 执行一次</a> ');
+		                actions.push('<a class="btn btn-warning btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="$.operate.detail(\'' + row.jobId + '\')"><em class="fa fa-search"></em>详细</a> ');
 		                return actions.join('');
 		            }
 		        }]
@@ -136,9 +136,9 @@
 		/* 调度任务状态显示 */
 		function statusTools(row) {
 		    if (row.status == 1) {
-    			return '<i class=\"fa fa-toggle-off text-info fa-2x\" onclick="start(\'' + row.jobId + '\', \'' + row.jobGroup + '\')"></i> ';
+    			return '<em class=\"fa fa-toggle-off text-info fa-2x\" onclick="start(\'' + row.jobId + '\', \'' + row.jobGroup + '\')"></em> ';
     		} else {
-    			return '<i class=\"fa fa-toggle-on text-info fa-2x\" onclick="stop(\'' + row.jobId + '\', \'' + row.jobGroup + '\')"></i> ';
+    			return '<em class=\"fa fa-toggle-on text-info fa-2x\" onclick="stop(\'' + row.jobId + '\', \'' + row.jobGroup + '\')"></em> ';
     		}
 		}
 		

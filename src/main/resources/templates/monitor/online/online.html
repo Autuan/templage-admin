@@ -17,8 +17,8 @@
 								登录名称：<input type="text" name="loginName"/>
 							</li>
 							<li>
-								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
-								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><em class="fa fa-search"></em>&nbsp;搜索</a>
+								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><em class="fa fa-refresh"></em>&nbsp;重置</a>
 							</li>
 						</ul>
 					</div>
@@ -27,7 +27,7 @@
 			
 	        <div class="btn-group-sm" id="toolbar" role="group">
 	            <a class="btn btn-danger multiple disabled" onclick="javascript:batchForceLogout()" shiro:hasPermission="monitor:online:batchForceLogout">
-	                <i class="fa fa-sign-out"></i> 强退
+	                <em class="fa fa-sign-out"></em> 强退
 	            </a>
 	        </div>
 	        
@@ -114,7 +114,7 @@
 		            title: '操作',
 		            align: 'center',
 		            formatter: function(value, row, index) {
-		                var msg = '<a class="btn btn-danger btn-xs ' + forceFlag + '" href="javascript:void(0)" onclick="forceLogout(\'' + row.sessionId + '\')"><i class="fa fa-sign-out"></i>强退</a> ';
+		                var msg = '<a class="btn btn-danger btn-xs ' + forceFlag + '" href="javascript:void(0)" onclick="forceLogout(\'' + row.sessionId + '\')"><em class="fa fa-sign-out"></em>强退</a> ';
 		                return msg;
 		            }
 		        }]

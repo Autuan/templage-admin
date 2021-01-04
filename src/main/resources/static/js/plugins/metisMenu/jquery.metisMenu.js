@@ -72,7 +72,7 @@
                 all = div.getElementsByTagName("i");
 
             while (
-                div.innerHTML = "<!--[if gt IE " + (++v) + "]><i></i><![endif]-->",
+                div.innerHTML = "<!--[if gt IE " + (++v) + "]><em></em><![endif]-->",
                     all[0]
                 ) {
                 return v > 4 ? v : undef;

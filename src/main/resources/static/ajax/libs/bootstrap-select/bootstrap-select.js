@@ -746,7 +746,7 @@
         if (options.icon) {
           var whitespace = elementTemplates.whitespace.cloneNode(false);
 
-          // need to use <i> for icons in the button to prevent a breaking change
+          // need to use <em> for icons in the button to prevent a breaking change
           // note: switch to span in next major release
           iconElement = (useFragment === true ? elementTemplates.i : elementTemplates.span).cloneNode(false);
           iconElement.className = options.iconBase + ' ' + options.icon;

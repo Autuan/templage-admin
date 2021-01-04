@@ -19,7 +19,7 @@
                             <li class="active"><a href="#tab-field" data-toggle="tab" aria-expanded="true">字段信息</a></li>
                             <li><a href="#tab-gen" data-toggle="tab" aria-expanded="false">生成信息</a></li>
                             <li class="pull-right header">
-								<i class="fa fa-code"></i> 生成配置
+								<em class="fa fa-code"></em> 生成配置
 							</li>
                         </ul>
                         <form id="form-gen-edit" class="form-horizontal" th:object="${table}">
@@ -98,7 +98,7 @@
 					                </div>
 					                <div class="col-sm-6">
 					                    <div class="form-group">
-					                        <label class="col-sm-4 control-label" title="生成在哪个java包下，例如 com.autuan.project.system"><span style="color: red; ">*</span>生成包路径：<i class="fa fa-question-circle-o"></i></label>
+					                        <label class="col-sm-4 control-label" title="生成在哪个java包下，例如 com.autuan.project.system"><span style="color: red; ">*</span>生成包路径：<em class="fa fa-question-circle-o"></em></label>
 					                        <div class="col-sm-8">
 					                            <input name="packageName" class="form-control" type="text" placeholder="请输入生成包路径" maxlength="100" th:field="*{packageName}" required>
 					                        </div>
@@ -108,7 +108,7 @@
 					            <div class="row">
 					                <div class="col-sm-6">
 					                    <div class="form-group">
-					                        <label class="col-sm-4 control-label" title="可理解为子系统名，例如 system"><span style="color: red; ">*</span>生成模块名：<i class="fa fa-question-circle-o"></i></label>
+					                        <label class="col-sm-4 control-label" title="可理解为子系统名，例如 system"><span style="color: red; ">*</span>生成模块名：<em class="fa fa-question-circle-o"></em></label>
 					                        <div class="col-sm-8">
 					                            <input name="moduleName" class="form-control" type="text" placeholder="请输入生成模块名" maxlength="30" th:field="*{moduleName}" required>
 					                        </div>
@@ -116,7 +116,7 @@
 					                </div>
 					                <div class="col-sm-6">
 					                    <div class="form-group">
-					                        <label class="col-sm-4 control-label" title="可理解为功能英文名，例如 user"><span style="color: red; ">*</span>生成业务名：<i class="fa fa-question-circle-o"></i></label>
+					                        <label class="col-sm-4 control-label" title="可理解为功能英文名，例如 user"><span style="color: red; ">*</span>生成业务名：<em class="fa fa-question-circle-o"></em></label>
 					                        <div class="col-sm-8">
 					                            <input name="businessName" class="form-control" type="text" placeholder="请输入生成业务名" maxlength="50" th:field="*{businessName}" required>
 					                        </div>
@@ -126,7 +126,7 @@
 					            <div class="row">
 					                <div class="col-sm-6">
 					                    <div class="form-group">
-					                        <label class="col-sm-4 control-label" title="用作类描述，例如 用户"><span style="color: red; ">*</span>生成功能名：<i class="fa fa-question-circle-o"></i></label>
+					                        <label class="col-sm-4 control-label" title="用作类描述，例如 用户"><span style="color: red; ">*</span>生成功能名：<em class="fa fa-question-circle-o"></em></label>
 					                        <div class="col-sm-8">
 					                            <input name="functionName" class="form-control" type="text" placeholder="请输入生成功能名" maxlength="50" th:field="*{functionName}" required>
 					                        </div>
@@ -138,7 +138,7 @@
 					            <div class="row">
 					                <div class="col-sm-6">
 					                    <div class="form-group">
-					                        <label class="col-sm-4 control-label" title="树显示的编码字段名， 如：dept_id"><span style="color: red; ">*</span>树编码字段：<i class="fa fa-question-circle-o"></i></label>
+					                        <label class="col-sm-4 control-label" title="树显示的编码字段名， 如：dept_id"><span style="color: red; ">*</span>树编码字段：<em class="fa fa-question-circle-o"></em></label>
 					                        <div class="col-sm-8">
 					                            <select class='form-control' id="treeCode" name='params[treeCode]' style="width: 100%">
 					                                <option value="">---请选择---</option>
@@ -149,7 +149,7 @@
 					                </div>
 					                <div class="col-sm-6">
 					                    <div class="form-group">
-					                        <label class="col-sm-4 control-label" title="树显示的父编码字段名， 如：parent_Id"><span style="color: red; ">*</span>树父编码字段：<i class="fa fa-question-circle-o"></i></label>
+					                        <label class="col-sm-4 control-label" title="树显示的父编码字段名， 如：parent_Id"><span style="color: red; ">*</span>树父编码字段：<em class="fa fa-question-circle-o"></em></label>
 					                        <div class="col-sm-8">
 					                            <select class='form-control' id="treeParentCode" name='params[treeParentCode]' style="width: 100%">
 												    <option value="">---请选择---</option>
@@ -162,7 +162,7 @@
 					            <div class="row">
 					                <div class="col-sm-6">
 					                    <div class="form-group">
-					                        <label class="col-sm-4 control-label" title="树节点的显示名称字段名， 如：dept_name"><span style="color: red; ">*</span>树名称字段：<i class="fa fa-question-circle-o"></i></label>
+					                        <label class="col-sm-4 control-label" title="树节点的显示名称字段名， 如：dept_name"><span style="color: red; ">*</span>树名称字段：<em class="fa fa-question-circle-o"></em></label>
 					                        <div class="col-sm-8">
 					                            <select class='form-control' id="treeName" name='params[treeName]' style="width: 100%">
 												    <option value="">---请选择---</option>
@@ -180,8 +180,8 @@
                 </div>
                <div class="box-footer">
 			       <div class="col-sm-offset-5 col-sm-6">
-			           <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i class="fa fa-check"></i>保 存</button>&nbsp;
-			           <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>
+			           <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><em class="fa fa-check"></em>保 存</button>&nbsp;
+			           <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><em class="fa fa-reply-all"></em>关 闭 </button>
 			       </div>
            	   </div>
             </div>
@@ -356,7 +356,7 @@
 		            width: "13%",
 		            formatter: function (value, row, index) {
 		        		var html = $.common.sprintf("<input class='form-control' type='text' name='columns[%s].dictType' value='%s' id='columns_dict_%s'>", index, value, row.columnId);
-		        		return "<div class='input-group'>" + html + "<span class='input-group-addon input-sm' onclick='selectDictTree(" + row.columnId + ", this)'><i class='fa fa-search'></i></span></div>";
+		        		return "<div class='input-group'>" + html + "<span class='input-group-addon input-sm' onclick='selectDictTree(" + row.columnId + ", this)'><em class='fa fa-search'></em></span></div>";
 		        	},
 		        	cellStyle: function(value, row, index) {
                         return { css: { "cursor": "default" } };

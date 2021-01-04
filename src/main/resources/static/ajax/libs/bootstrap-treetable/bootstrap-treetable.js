@@ -72,19 +72,19 @@
             target.parent().before($toolbar);
             // ruoyi 是否显示检索信息
             if (options.showSearch) {
-                var $searchBtn = $('<button class="btn btn-default btn-outline" type="button" aria-label="search" title="搜索"><i class="glyphicon glyphicon-search"></i></button>');
+                var $searchBtn = $('<button class="btn btn-default btn-outline" type="button" aria-label="search" title="搜索"><em class="glyphicon glyphicon-search"></em></button>');
                 $rightToolbar.append($searchBtn);
                 registerSearchBtnClickEvent($searchBtn);
             }
             // 是否显示刷新按钮
             if (options.showRefresh) {
-                var $refreshBtn = $('<button class="btn btn-default btn-outline" type="button" aria-label="refresh" title="刷新"><i class="glyphicon glyphicon-repeat"></i></button>');
+                var $refreshBtn = $('<button class="btn btn-default btn-outline" type="button" aria-label="refresh" title="刷新"><em class="glyphicon glyphicon-repeat"></em></button>');
                 $rightToolbar.append($refreshBtn);
                 registerRefreshBtnClickEvent($refreshBtn);
             }
             // 是否显示列选项
             if (options.showColumns) {
-                var $columns_div = $('<div class="btn-group pull-right" title="列"><button type="button" aria-label="columns" class="btn btn-default btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-list"></i> <span class="caret"></span></button></div>');
+                var $columns_div = $('<div class="btn-group pull-right" title="列"><button type="button" aria-label="columns" class="btn btn-default btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><em class="glyphicon glyphicon-list"></em> <span class="caret"></span></button></div>');
                 var $columns_ul = $('<ul class="dropdown-menu columns" role="menu"></ul>');
                 $.each(options.columns, function(i, column) {
                     if (column.field != 'selectItem') {

@@ -132,7 +132,7 @@
 
         html.push(sprintf('<div class="columns columns-%s btn-group pull-%s" role="group">', this.options.buttonsAlign, this.options.buttonsAlign));
         html.push(sprintf('<button class="btn btn-default%s' + '" type="button" name="advancedSearch" title="%s">', that.options.iconSize === undefined ? '' : ' btn-' + that.options.iconSize, that.options.formatAdvancedSearch()));
-        html.push(sprintf('<i class="%s %s"></i>', that.options.iconsPrefix, that.options.icons.advancedSearchIcon))
+        html.push(sprintf('<em class="%s %s"></em>', that.options.iconsPrefix, that.options.icons.advancedSearchIcon))
         html.push('</button></div>');
 
         that.$toolbar.prepend(html.join(''));

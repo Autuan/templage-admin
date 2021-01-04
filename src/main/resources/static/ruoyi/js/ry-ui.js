@@ -226,7 +226,7 @@
 				var actions = [];
 				actions.push('<div class="btn-group">');
 				actions.push('<button type="button" class="btn btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">');
-				actions.push('<i class="fa fa-cog"></i>&nbsp;<span class="fa fa-chevron-down"></span></button>');
+				actions.push('<em class="fa fa-cog"></em>&nbsp;<span class="fa fa-chevron-down"></span></button>');
 				actions.push('<ul class="dropdown-menu">');
 				actions.push(value.replace(/<a/g,"<li><a").replace(/<\/a>/g,"</a></li>"));
 				actions.push('</ul>');
@@ -314,7 +314,7 @@
             		shade: 0.3,
             		title: '导入' + $.table._option.modalName + '数据',
             		content: $('#' + currentId).html(),
-            		btn: ['<i class="fa fa-check"></i> 导入', '<i class="fa fa-remove"></i> 取消'],
+            		btn: ['<em class="fa fa-check"></em> 导入', '<em class="fa fa-remove"></em> 取消'],
             		// 弹层外区域关闭
             		shadeClose: true,
             		btn1: function(index, layero){
@@ -664,7 +664,7 @@
             	var _title = $.common.isEmpty(options.title) ? "系统窗口" : options.title; 
                 var _width = $.common.isEmpty(options.width) ? "800" : options.width; 
                 var _height = $.common.isEmpty(options.height) ? ($(window).height() - 50) : options.height;
-                var _btn = ['<i class="fa fa-check"></i> 确认', '<i class="fa fa-close"></i> 关闭'];
+                var _btn = ['<em class="fa fa-check"></em> 确认', '<em class="fa fa-close"></em> 关闭'];
                 if ($.common.isEmpty(options.yes)) {
                 	options.yes = function(index, layero) {
                     	options.callBack(index, layero);

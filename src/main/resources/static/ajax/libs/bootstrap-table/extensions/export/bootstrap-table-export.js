@@ -56,7 +56,7 @@
                             ' dropdown-toggle" ' +
                             'title="' + this.options.formatExport() + '" ' +
                             'data-toggle="dropdown" type="button">',
-                            sprintf('<i class="%s %s"></i> ', this.options.iconsPrefix, this.options.icons.export),
+                            sprintf('<em class="%s %s"></em> ', this.options.iconsPrefix, this.options.icons.export),
                             '<span class="caret"></span>',
                         '</button>',
                         '<ul class="dropdown-menu" role="menu">',
