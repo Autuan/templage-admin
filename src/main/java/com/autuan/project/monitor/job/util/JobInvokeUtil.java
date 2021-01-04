@@ -31,7 +31,7 @@ public class JobInvokeUtil {
             invokeMethod(bean, methodName, methodParams); // NOSONAR
         } else {
             Object bean = Class.forName(beanName).newInstance();
-            invokeMethod(bean, methodName, methodParams);
+            invokeMethod(bean, methodName, methodParams); // NOSONAR
         }
     }
 
