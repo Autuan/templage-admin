@@ -37,7 +37,7 @@ public class IpUtils {
 
     public static boolean internalIp(String ip) {
         byte[] addr = textToNumericFormatV4(ip);
-        return internalIp(addr) || "127.0.0.1".equals(ip);
+        return internalIp(addr) || "127.0.0.1".equals(ip); // NOSONAR
     }
 
     private static boolean internalIp(byte[] addr) {
