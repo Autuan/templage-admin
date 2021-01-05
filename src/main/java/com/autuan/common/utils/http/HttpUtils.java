@@ -170,7 +170,7 @@ public class HttpUtils
         try
         {
             log.info("sendSSLPost - {}", urlNameString);
-            SSLContext sc = SSLContext.getInstance("SSL");
+            SSLContext sc = SSLContext.getInstance("TLSv1.2");
             sc.init(null, new TrustManager[] { new TrustAnyTrustManager() }, new java.security.SecureRandom());
             URL console = new URL(urlNameString);
             HttpsURLConnection conn = (HttpsURLConnection) console.openConnection();
