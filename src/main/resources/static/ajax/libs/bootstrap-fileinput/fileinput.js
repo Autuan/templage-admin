@@ -1438,7 +1438,7 @@
             tActionUpload = '<button type="button" class="kv-file-upload {uploadClass}" title="{uploadTitle}">' +
                 '{uploadIcon}</button>';
             tActionDownload = '<a class="kv-file-download {downloadClass}" title="{downloadTitle}" ' +
-                'href="{downloadUrl}" download="{caption}" target="_blank">{downloadIcon}</a>';
+                'href="{downloadUrl}" download="{caption}"  target="_blank" rel="noopener noreferrer" >{downloadIcon}</a>';
             tActionZoom = '<button type="button" class="kv-file-zoom {zoomClass}" ' +
                 'title="{zoomTitle}">{zoomIcon}</button>';
             tActionDrag = '<span class="file-drag-handle {dragClass}" title="{dragTitle}">{dragIcon}</span>';

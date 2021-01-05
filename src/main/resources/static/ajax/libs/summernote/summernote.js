@@ -6703,7 +6703,7 @@
               className: 'note-link-popover',
               callback: function ($node) {
                   var $content = $node.find('.popover-content,.note-popover-content');
-                  $content.prepend('<span><a target="_blank"></a>&nbsp;</span>');
+                  $content.prepend('<span><a  target="_blank" rel="noopener noreferrer" ></a>&nbsp;</span>');
               }
           }).render().appendTo(this.options.container);
           var $content = this.$popover.find('.popover-content,.note-popover-content');
@@ -7183,9 +7183,9 @@
           var $container = this.options.dialogsInBody ? this.$body : this.$editor;
           var body = [
               '<p class="text-center">',
-              '<a href="http://summernote.org/" target="_blank">Summernote 0.8.11</a> · ',
-              '<a href="https://github.com/summernote/summernote" target="_blank">Project</a> · ',
-              '<a href="https://github.com/summernote/summernote/issues" target="_blank">Issues</a>',
+              '<a href="http://summernote.org/"  target="_blank" rel="noopener noreferrer" >Summernote 0.8.11</a> · ',
+              '<a href="https://github.com/summernote/summernote"  target="_blank" rel="noopener noreferrer" >Project</a> · ',
+              '<a href="https://github.com/summernote/summernote/issues"  target="_blank" rel="noopener noreferrer" >Issues</a>',
               '</p>',
           ].join('');
           this.$dialog = this.ui.dialog({
