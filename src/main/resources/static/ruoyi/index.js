@@ -363,7 +363,7 @@ $(function() {
         return false;
     }
     
-    $('.menuTabs').on('click', '.menuTab i', closeTab);
+    $('.menuTabs').on('click', '.menuTab em', closeTab);
 
     //滚动到已激活的选项卡
     function showActiveTab() {
@@ -400,7 +400,7 @@ $(function() {
     
     // 关闭当前选项卡
     function tabCloseCurrent() {
-    	$('.page-tabs-content').find('.active i').trigger("click");
+    	$('.page-tabs-content').find('.active em').trigger("click");
     }
     
     //关闭其他选项卡

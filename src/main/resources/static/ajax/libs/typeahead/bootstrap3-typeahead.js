@@ -186,7 +186,7 @@
             var newTop = dropup ? 'auto' : (pos.top + pos.height + scrollHeight);
             var right = $(element).hasClass('dropdown-menu-right');
             var newLeft = right ? 'auto' : pos.left;
-            // it seems like setting the css is a bad idea (just let Bootstrap do it), but I'll keep the old
+            // it seems like setting the css is a bad idea (just let Bootstrap do it), but I 'll keep the old
             // logic in place except for the dropup/right-align cases.
             element.css({ top: newTop, left: newLeft }).show();
 

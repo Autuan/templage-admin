@@ -854,7 +854,7 @@
       return array[idx + 1];
   }
   /**
-   * returns prev item.
+   * returns prev emtem.
    * @param {Array} array
    */
   function prev(array, item) {

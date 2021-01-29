@@ -226,7 +226,7 @@
     }
     if (this.isRTL) {
       this.picker.addClass('datetimepicker-rtl');
-      var selector = this.bootcssVer === 3 ? '.prev span, .next span' : '.prev i, .next i';
+      var selector = this.bootcssVer === 3 ? '.prev span, .next span' : '.prev em, .next em';
       this.picker.find(selector).toggleClass(this.icons.leftArrow + ' ' + this.icons.rightArrow);
     }
 

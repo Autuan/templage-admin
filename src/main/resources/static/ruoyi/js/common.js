@@ -175,7 +175,7 @@ var closeItem = function(dataId){
 		return;
 	}
 	var panelUrl = window.frameElement.getAttribute('data-panel');
-	$('.page-tabs-content .active i', topWindow).click();
+	$('.page-tabs-content .active em', topWindow).click();
 	if($.common.isNotEmpty(panelUrl)){
 		$('.menuTab[data-id="' + panelUrl + '"]', topWindow).addClass('active').siblings('.menuTab').removeClass('active');
 		$('.mainContent .RuoYi_iframe', topWindow).each(function() {

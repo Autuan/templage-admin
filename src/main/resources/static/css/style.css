@@ -6571,7 +6571,7 @@ body.rtls .top-navigation .footer.fixed, body.rtls.top-navigation .footer.fixed 
 	color: #23508e;
 }
 .page-tabs a.active:hover,
-.page-tabs a.active i:hover {
+.page-tabs a.active em:hover {
 	background: #eaedf1;
 	color: #23508e;
 }
