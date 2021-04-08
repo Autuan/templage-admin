@@ -183,6 +183,18 @@
             		input.select();
             		document.execCommand("copy");
             	});
+				$.btTable.on('click', '.bootstrapTableCopyFa', function() {
+					var input = $(this).parent().siblings('.bootstrapTableCopyInput');
+					input.select();
+					document.execCommand("copy");
+					$.modal.msgSuccess('复制成功')
+				});
+				$.btTable.on('mouseenter', '.copyFaHover', function() {
+					$(this).find('.bootstrapTableCopyFa').removeClass('hidden');
+				});
+				$.btTable.on('mouseleave', '.copyFaHover', function() {
+					$(this).find('.bootstrapTableCopyFa').addClass('hidden');
+				});
             },
             // 当所有数据被加载时触发
             onLoadSuccess: function(data) {
@@ -191,6 +203,9 @@
             	}
             	// 浮动提示框特效
             	$("[data-toggle='tooltip']").tooltip();
+				// 复制特效
+				$('.bootstrapTableCopyInput').parent('td').addClass('copyFaHover');
+				$(".bootstrapTableCopyAble").append('<a href="javascript:void(0);" style="margin-left: 30%" class="fa fa-clone bootstrapTableCopyFa hidden"></a>');
             },
             // 表格销毁
             destroy: function (tableId) {
@@ -220,6 +235,12 @@
 					_text = _value;
 					return _text;
 				}
+			},
+			copyable:function(value){
+				var actions = [];
+				actions.push(`<input class="bootstrapTableCopyInput" value="${value}" style="opacity: 0;position: absolute;z-index:-1" />`);
+				actions.push(`<span class="bootstrapTableCopyAble">${value}</span>`);
+				return actions.join('');
 			},
 			// 下拉按钮切换
 			dropdownToggle: function (value) {

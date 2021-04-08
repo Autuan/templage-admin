@@ -486,7 +486,7 @@ $(function() {
                 name: "关闭当前",
                 icon: "fa-close",
                 callback: function(key, opt) {
-                	opt.$trigger.find('i').trigger("click");
+                	opt.$trigger.find('em').trigger("click");
                 }
             },
             "close_other": {
