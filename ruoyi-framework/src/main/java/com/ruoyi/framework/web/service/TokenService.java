@@ -1,9 +1,16 @@
 package com.ruoyi.framework.web.service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-import javax.servlet.http.HttpServletRequest;
+
+import cn.hutool.jwt.JWT;
+import cn.hutool.jwt.JWTUtil;
+import cn.hutool.jwt.signers.HMacJWTSigner;
+import cn.hutool.jwt.signers.JWTSigner;
+import cn.hutool.jwt.signers.JWTSignerUtil;
+import jakarta.servlet.http.HttpServletRequest;
 
 import cn.dev33.satoken.context.model.SaRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,10 +72,14 @@ public class TokenService
         String token = getToken(request);
         if (StringUtils.isNotEmpty(token))
         {
-            Claims claims = parseToken(token);
+            JWT jwt = JWTUtil.parseToken(token);
+            String uuid = String.valueOf(jwt.getPayload().getClaim(Constants.LOGIN_USER_KEY));
+ String userKey = getTokenKey(uuid);
+  LoginUser tempuser = redisCache.getCacheObject(userKey);
+//            Claims claims = parseToken(token);
             // 解析对应的权限以及用户信息
-            String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);
-            String userKey = getTokenKey(uuid);
+//            String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);
+//            String userKey = getTokenKey(uuid);
             LoginUser user = redisCache.getCacheObject(userKey);
             return user;
         }
@@ -201,9 +212,12 @@ public class TokenService
      */
     private String createToken(Map<String, Object> claims)
     {
-        String token = Jwts.builder()
-                .setClaims(claims)
-                .signWith(SignatureAlgorithm.HS512, secret).compact();
+//        String token = Jwts.builder()
+//                .setClaims(claims)
+//                .signWith(SignatureAlgorithm.HS512, secret).compact();
+        JWTSigner signer = JWTSignerUtil.hs512(secret.getBytes(StandardCharsets.UTF_8));
+//        JWTSigner signer = new HMacJWTSigner(SignatureAlgorithm.HS512.getValue(), secret.getBytes(StandardCharsets.UTF_8));
+        String token = JWTUtil.createToken(claims, signer);
         return token;
     }
 
@@ -215,6 +229,7 @@ public class TokenService
      */
     private Claims parseToken(String token)
     {
+
         return Jwts.parser()
                 .setSigningKey(secret)
                 .parseClaimsJws(token)

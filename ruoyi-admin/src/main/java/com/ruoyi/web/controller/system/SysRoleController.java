@@ -3,6 +3,8 @@ package com.ruoyi.web.controller.system;
 import java.util.List;
 
 import cn.dev33.satoken.annotation.SaCheckPermission;
+import com.ruoyi.common.core.domain.entity.SysDept;
+import com.ruoyi.system.service.ISysDeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -50,6 +52,9 @@ public class SysRoleController extends BaseController
     
     @Autowired
     private ISysUserService userService;
+
+    @Autowired
+    private ISysDeptService deptService;
 
     @SaCheckPermission("system:role:list")
     @GetMapping("/list")
@@ -180,5 +185,19 @@ public class SysRoleController extends BaseController
     public AjaxResult optionselect()
     {
         return AjaxResult.success(roleService.selectRoleAll());
+    }
+
+        /**
+     * 获取对应角色部门树列表
+     */
+//    @PreAuthorize("@ss.hasPermi('system:role:query')")
+    @SaCheckPermission("system:role:query")
+    @GetMapping(value = "/deptTree/{roleId}")
+    public AjaxResult deptTree(@PathVariable("roleId") Long roleId)
+    {
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("checkedKeys", deptService.selectDeptListByRoleId(roleId));
+        ajax.put("depts", deptService.selectDeptList(new SysDept()));
+        return ajax;
     }
 }

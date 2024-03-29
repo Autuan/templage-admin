@@ -1,8 +1,10 @@
 package com.ruoyi.web.controller.system;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.stp.StpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +24,7 @@ import com.ruoyi.framework.web.service.TokenService;
 import com.ruoyi.system.service.ISysMenuService;
 import springfox.documentation.service.TokenEndpoint;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * 登录验证
@@ -64,7 +66,10 @@ public class SysLoginController
     @PostMapping("/logout")
     public AjaxResult logout(HttpServletRequest request){
         LoginUser loginUser=tokenService.getLoginUser(request);
-        tokenService.delLoginUser(loginUser.getToken());
+        String token = Optional.ofNullable(loginUser)
+                .map(LoginUser::getToken)
+                .orElse(null);
+        tokenService.delLoginUser(token);
         return AjaxResult.error("退出成功！");
     }
 

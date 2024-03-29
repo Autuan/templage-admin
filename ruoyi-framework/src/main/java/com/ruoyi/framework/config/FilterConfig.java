@@ -2,7 +2,7 @@ package com.ruoyi.framework.config;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.servlet.DispatcherType;
+import jakarta.servlet.DispatcherType;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +16,7 @@ import com.ruoyi.common.utils.StringUtils;
  *
  * @author ruoyi
  */
-@Configuration
+//@Configuration
 public class FilterConfig
 {
     @Value("${xss.enabled}")
@@ -45,16 +45,16 @@ public class FilterConfig
         return registration;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    @Bean
-    public FilterRegistrationBean someFilterRegistration()
-    {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(new RepeatableFilter());
-        registration.addUrlPatterns("/*");
-        registration.setName("repeatableFilter");
-        registration.setOrder(FilterRegistrationBean.LOWEST_PRECEDENCE);
-        return registration;
-    }
+//    @SuppressWarnings({ "rawtypes", "unchecked" })
+//    @Bean
+//    public FilterRegistrationBean someFilterRegistration()
+//    {
+//        FilterRegistrationBean registration = new FilterRegistrationBean();
+////        registration.setFilter(new RepeatableFilter());
+//        registration.addUrlPatterns("/*");
+//        registration.setName("repeatableFilter");
+//        registration.setOrder(FilterRegistrationBean.LOWEST_PRECEDENCE);
+//        return registration;
+//    }
 
 }

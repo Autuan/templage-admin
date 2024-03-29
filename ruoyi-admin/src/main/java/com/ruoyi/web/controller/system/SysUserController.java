@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import cn.dev33.satoken.annotation.SaCheckPermission;
+import com.ruoyi.common.core.domain.entity.SysDept;
+import com.ruoyi.system.service.ISysDeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -53,6 +55,9 @@ public class SysUserController extends BaseController
 
     @Autowired
     private TokenService tokenService;
+
+    @Autowired
+    private ISysDeptService deptService;
 
     /**
      * 获取用户列表
@@ -202,5 +207,18 @@ public class SysUserController extends BaseController
         userService.checkUserAllowed(user);
         user.setUpdateBy(SecurityUtils.getUsername());
         return toAjax(userService.updateUserStatus(user));
+    }
+
+
+    /**
+     * 获取部门树列表
+     */
+//    @PreAuthorize("@ss.hasPermi('system:user:list')")
+    @SaCheckPermission("system:user:list")
+    @GetMapping("/deptTree")
+    public AjaxResult deptTree(SysDept dept)
+    {
+        List<SysDept> sysDepts = deptService.selectDeptList(dept);
+        return AjaxResult.success(sysDepts);
     }
 }
