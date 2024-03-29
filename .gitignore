@@ -37,12 +37,8 @@ nbdist/
 # Others
 *.log
 *.xml.versionsBackup
+*.swp
 
 !*/build/*.java
 !*/build/*.html
 !*/build/*.xml
-
-#/src/main/resources/application.yml
-/src/main/resources/application-druid.yml
-src/main/resources/application-druid.yml
-/src/main/resources/generator/
