@@ -1,5 +1,6 @@
-package com.ruoyi.framework.web.exception;
+package com.ruoyi.web.exception;
 
+import cn.dev33.satoken.exception.NotLoginException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.BindException;
@@ -56,6 +57,9 @@ public class GlobalExceptionHandler
     @ExceptionHandler(Exception.class)
     public AjaxResult handleException(Exception e)
     {
+        if(e instanceof NotLoginException) {
+            return AjaxResult.error(HttpStatus.UNAUTHORIZED, "需要登录");
+        }
         log.error(e.getMessage(), e);
         return AjaxResult.error(e.getMessage());
     }

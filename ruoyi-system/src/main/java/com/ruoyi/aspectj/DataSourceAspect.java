@@ -1,4 +1,4 @@
-package com.ruoyi.framework.aspectj;
+package com.ruoyi.aspectj;
 
 import java.util.Objects;
 import org.aspectj.lang.ProceedingJoinPoint;

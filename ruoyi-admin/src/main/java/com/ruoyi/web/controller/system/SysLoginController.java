@@ -1,11 +1,11 @@
 package com.ruoyi.web.controller.system;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
-import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.stp.StpUtil;
+import com.ruoyi.web.service.SysLoginService;
+import com.ruoyi.web.service.SysPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,11 +18,8 @@ import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginBody;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.utils.ServletUtils;
-import com.ruoyi.framework.web.service.SysLoginService;
-import com.ruoyi.framework.web.service.SysPermissionService;
-import com.ruoyi.framework.web.service.TokenService;
+import com.ruoyi.web.service.TokenService;
 import com.ruoyi.system.service.ISysMenuService;
-import springfox.documentation.service.TokenEndpoint;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -65,11 +62,12 @@ public class SysLoginController
 
     @PostMapping("/logout")
     public AjaxResult logout(HttpServletRequest request){
-        LoginUser loginUser=tokenService.getLoginUser(request);
-        String token = Optional.ofNullable(loginUser)
-                .map(LoginUser::getToken)
-                .orElse(null);
-        tokenService.delLoginUser(token);
+        StpUtil.logout();
+//        LoginUser loginUser=tokenService.getLoginUser(request);
+//        String token = Optional.ofNullable(loginUser)
+//                .map(LoginUser::getToken)
+//                .orElse(null);
+//        tokenService.delLoginUser(token);
         return AjaxResult.error("退出成功！");
     }
 

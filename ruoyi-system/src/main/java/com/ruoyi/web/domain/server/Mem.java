@@ -1,4 +1,4 @@
-package com.ruoyi.framework.web.domain.server;
+package com.ruoyi.web.domain.server;
 
 import com.ruoyi.common.utils.Arith;
 

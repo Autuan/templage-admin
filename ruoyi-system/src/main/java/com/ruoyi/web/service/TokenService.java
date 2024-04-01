@@ -1,10 +1,11 @@
-package com.ruoyi.framework.web.service;
+package com.ruoyi.web.service;
 
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.jwt.JWT;
 import cn.hutool.jwt.JWTUtil;
 import cn.hutool.jwt.signers.HMacJWTSigner;
@@ -41,16 +42,16 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 public class TokenService
 {
     // 令牌自定义标识
-    @Value("${token.header}")
-    private String header;
+//    @Value("${token.header}")
+//    private String header;
 
     // 令牌秘钥
-    @Value("${token.secret}")
-    private String secret;
+//    @Value("${token.secret}")
+//    private String secret;
 
     // 令牌有效期（默认30分钟）
-    @Value("${token.expireTime}")
-    private int expireTime;
+//    @Value("${token.expireTime}")
+//    private int expireTime;
 
     protected static final long MILLIS_SECOND = 1000;
 
@@ -68,22 +69,27 @@ public class TokenService
      */
     public LoginUser getLoginUser(HttpServletRequest request)
     {
+        Long userId = StpUtil.getLoginIdAsLong();
+//        Object obj = redisCache.getCacheObject("admin:login:user:" + userId);
+        LoginUser user = redisCache.getCacheObject("admin:login:user:" + userId);
+        return user;
+//        return obj == null ? null : (LoginUser) obj;
         // 获取请求携带的令牌
-        String token = getToken(request);
-        if (StringUtils.isNotEmpty(token))
-        {
-            JWT jwt = JWTUtil.parseToken(token);
-            String uuid = String.valueOf(jwt.getPayload().getClaim(Constants.LOGIN_USER_KEY));
- String userKey = getTokenKey(uuid);
-  LoginUser tempuser = redisCache.getCacheObject(userKey);
-//            Claims claims = parseToken(token);
-            // 解析对应的权限以及用户信息
-//            String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);
-//            String userKey = getTokenKey(uuid);
-            LoginUser user = redisCache.getCacheObject(userKey);
-            return user;
-        }
-        return null;
+//        String token = getToken(request);
+//        if (StringUtils.isNotEmpty(token))
+//        {
+//            JWT jwt = JWTUtil.parseToken(token);
+//            String uuid = String.valueOf(jwt.getPayload().getClaim(Constants.LOGIN_USER_KEY));
+// String userKey = getTokenKey(uuid);
+//  LoginUser tempuser = redisCache.getCacheObject(userKey);
+////            Claims claims = parseToken(token);
+//            // 解析对应的权限以及用户信息
+////            String uuid = (String) claims.get(Constants.LOGIN_USER_KEY);
+////            String userKey = getTokenKey(uuid);
+//            LoginUser user = redisCache.getCacheObject(userKey);
+//            return user;
+//        }
+//        return null;
     }
 
     /**
@@ -149,14 +155,16 @@ public class TokenService
      */
     public String createToken(LoginUser loginUser)
     {
-        String token = IdUtils.fastUUID();
-        loginUser.setToken(token);
-        setUserAgent(loginUser);
-        refreshToken(loginUser);
-
-        Map<String, Object> claims = new HashMap<>();
-        claims.put(Constants.LOGIN_USER_KEY, token);
-        return createToken(claims);
+        // todo del 使用 satoken 后不需要 createToken
+        return  null;
+//        String token = IdUtils.fastUUID();
+//        loginUser.setToken(token);
+//        setUserAgent(loginUser);
+//        refreshToken(loginUser);
+//
+//        Map<String, Object> claims = new HashMap<>();
+//        claims.put(Constants.LOGIN_USER_KEY, token);
+//        return createToken(claims);
     }
 
     /**
@@ -182,11 +190,14 @@ public class TokenService
      */
     public void refreshToken(LoginUser loginUser)
     {
-        loginUser.setLoginTime(System.currentTimeMillis());
-        loginUser.setExpireTime(loginUser.getLoginTime() + expireTime * MILLIS_MINUTE);
-        // 根据uuid将loginUser缓存
-        String userKey = getTokenKey(loginUser.getToken());
-        redisCache.setCacheObject(userKey, loginUser, expireTime, TimeUnit.MINUTES);
+//        loginUser.setLoginTime(System.currentTimeMillis());
+//        loginUser.setExpireTime(loginUser.getLoginTime() + expireTime * MILLIS_MINUTE);
+//        // 根据uuid将loginUser缓存
+//        String userKey = getTokenKey(loginUser.getToken());
+//        redisCache.setCacheObject(userKey, loginUser, expireTime, TimeUnit.MINUTES);
+        // todo 配置文件
+        int expireTime = 30;
+        StpUtil.renewTimeout(expireTime * 60);
     }
 
     /**
@@ -212,13 +223,11 @@ public class TokenService
      */
     private String createToken(Map<String, Object> claims)
     {
-//        String token = Jwts.builder()
-//                .setClaims(claims)
-//                .signWith(SignatureAlgorithm.HS512, secret).compact();
-        JWTSigner signer = JWTSignerUtil.hs512(secret.getBytes(StandardCharsets.UTF_8));
-//        JWTSigner signer = new HMacJWTSigner(SignatureAlgorithm.HS512.getValue(), secret.getBytes(StandardCharsets.UTF_8));
-        String token = JWTUtil.createToken(claims, signer);
-        return token;
+//        JWTSigner signer = JWTSignerUtil.hs512(secret.getBytes(StandardCharsets.UTF_8));
+//        String token = JWTUtil.createToken(claims, signer);
+//        return token;
+        // todo del 使用 satoken 后不需要 createToken
+        return  null;
     }
 
     /**
@@ -229,11 +238,12 @@ public class TokenService
      */
     private Claims parseToken(String token)
     {
-
-        return Jwts.parser()
-                .setSigningKey(secret)
-                .parseClaimsJws(token)
-                .getBody();
+        // todo del 使用 satoken 后不需要
+    return null;
+//        return Jwts.parser()
+//                .setSigningKey(secret)
+//                .parseClaimsJws(token)
+//                .getBody();
     }
 
     /**
@@ -256,12 +266,14 @@ public class TokenService
      */
     private String getToken(HttpServletRequest request)
     {
-        String token = request.getHeader(header);
-        if (StringUtils.isNotEmpty(token) && token.startsWith(Constants.TOKEN_PREFIX))
-        {
-            token = token.replace(Constants.TOKEN_PREFIX, "");
-        }
-        return token;
+        // todo del 使用 satoken 后不需要
+        return null;
+//        String token = request.getHeader(header);
+//        if (StringUtils.isNotEmpty(token) && token.startsWith(Constants.TOKEN_PREFIX))
+//        {
+//            token = token.replace(Constants.TOKEN_PREFIX, "");
+//        }
+//        return token;
     }
 
 
@@ -274,12 +286,14 @@ public class TokenService
      */
     private String getToken(SaRequest request)
     {
-        String token = request.getHeader(header);
-        if (StringUtils.isNotEmpty(token) && token.startsWith(Constants.TOKEN_PREFIX))
-        {
-            token = token.replace(Constants.TOKEN_PREFIX, "");
-        }
-        return token;
+        // todo del 使用 satoken 后不需要
+        return null;
+//        String token = request.getHeader(header);
+//        if (StringUtils.isNotEmpty(token) && token.startsWith(Constants.TOKEN_PREFIX))
+//        {
+//            token = token.replace(Constants.TOKEN_PREFIX, "");
+//        }
+//        return token;
     }
 
 

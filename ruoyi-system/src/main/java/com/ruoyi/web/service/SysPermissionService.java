@@ -1,4 +1,4 @@
-package com.ruoyi.framework.web.service;
+package com.ruoyi.web.service;
 
 import java.util.HashSet;
 import java.util.Set;

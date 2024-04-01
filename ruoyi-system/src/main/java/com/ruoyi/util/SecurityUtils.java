@@ -1,17 +1,13 @@
-package com.ruoyi.common.utils;
+package com.ruoyi.util;
 
 import cn.dev33.satoken.secure.SaSecureUtil;
+import cn.hutool.extra.spring.SpringUtil;
 import com.ruoyi.common.constant.HttpStatus;
 import com.ruoyi.common.core.domain.model.LoginUser;
 import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.common.utils.spring.SpringUtils;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-import jakarta.servlet.http.HttpServletRequest;
+import com.ruoyi.web.service.TokenService;
 
 /**
  * 安全服务工具类
@@ -40,15 +36,20 @@ public class SecurityUtils
      **/
     public static LoginUser getLoginUser()
     {
-         TokenService1 tokenService= SpringUtils.getBean(TokenService1.class);
+//         Long userId = StpUtil.getLoginIdAsLong();
+//         LoginUser user = redisCache.getCacheObject("admin:login:user:" + userId);
+         TokenService tokenService= SpringUtils.getBean(TokenService.class);
+        SpringUtil.getBean(TokenService.class);
         try
         {
             return  tokenService.getLoginUser();
+//            return null;
         }
         catch (Exception e)
         {
             throw new CustomException("获取用户信息异常", HttpStatus.UNAUTHORIZED);
         }
+//            throw new CustomException("获取用户信息异常", HttpStatus.UNAUTHORIZED);
     }
 
     /**

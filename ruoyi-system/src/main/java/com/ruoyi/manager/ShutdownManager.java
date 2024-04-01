@@ -1,4 +1,4 @@
-package com.ruoyi.framework.manager;
+package com.ruoyi.manager;
 
 import jakarta.annotation.PreDestroy;
 import org.slf4j.Logger;

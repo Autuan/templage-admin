@@ -1,4 +1,4 @@
-package com.ruoyi.framework.web.domain;
+package com.ruoyi.web.domain;
 
 import java.net.UnknownHostException;
 import java.util.LinkedList;
@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Properties;
 import com.ruoyi.common.utils.Arith;
 import com.ruoyi.common.utils.ip.IpUtils;
-import com.ruoyi.framework.web.domain.server.Cpu;
-import com.ruoyi.framework.web.domain.server.Jvm;
-import com.ruoyi.framework.web.domain.server.Mem;
-import com.ruoyi.framework.web.domain.server.Sys;
-import com.ruoyi.framework.web.domain.server.SysFile;
+import com.ruoyi.web.domain.server.Cpu;
+import com.ruoyi.web.domain.server.Jvm;
+import com.ruoyi.web.domain.server.Mem;
+import com.ruoyi.web.domain.server.Sys;
+import com.ruoyi.web.domain.server.SysFile;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.TickType;

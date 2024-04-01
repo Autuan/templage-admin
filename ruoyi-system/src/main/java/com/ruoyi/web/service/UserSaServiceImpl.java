@@ -1,4 +1,4 @@
-package com.ruoyi.framework.web.service;
+package com.ruoyi.web.service;
 
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginUser;
@@ -6,7 +6,7 @@ import com.ruoyi.common.enums.UserStatus;
 import com.ruoyi.common.exception.BaseException;
 import com.ruoyi.common.exception.CustomException;
 import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.SecurityUtils;
+import com.ruoyi.util.SecurityUtils;
 import com.ruoyi.system.service.ISysUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

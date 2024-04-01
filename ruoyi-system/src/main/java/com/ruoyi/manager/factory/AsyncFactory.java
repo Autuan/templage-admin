@@ -1,4 +1,4 @@
-package com.ruoyi.framework.manager.factory;
+package com.ruoyi.manager.factory;
 
 import java.util.TimerTask;
 import org.slf4j.Logger;

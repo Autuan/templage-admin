@@ -2,19 +2,10 @@ package com.ruoyi.framework.config;
 
 import cn.dev33.satoken.interceptor.SaInterceptor;
 import cn.dev33.satoken.stp.StpUtil;
-import com.ruoyi.common.constant.HttpStatus;
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.common.exception.CustomException;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.framework.web.service.TokenService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.util.Arrays;
 
 
 @Configuration
@@ -31,13 +22,16 @@ public class SaTokenConfigure implements WebMvcConfigurer {
 
         registry.addInterceptor(new SaInterceptor(handler -> {
             log.info("SaInterceptor run -> {}",StpUtil.getTokenInfo());
-
                     StpUtil.checkLogin();
-
                 }))
                 .addPathPatterns("/**")
                 .excludePathPatterns(
                         "/login",
+
+//                        "/getInfo",
+                        "/logout",
+//                        "/getRouters",
+
                         "/captchaImage",
                         "/*.html",
                         "/**/*.html",

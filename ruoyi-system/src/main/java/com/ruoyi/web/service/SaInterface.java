@@ -1,4 +1,4 @@
-package com.ruoyi.framework.web.service;
+package com.ruoyi.web.service;
 
 import cn.dev33.satoken.stp.StpInterface;
 import com.ruoyi.common.core.domain.model.LoginUser;
